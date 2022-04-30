@@ -17,8 +17,8 @@
             <div class="container">
                 <div class="row sidenav">
                     <a href="home.php" class = "is-active">Home</a>
-                    <a href="available.php">Looking for blood</a>
-                    <a href="nearbank1.php">Blood bank</a>
+                    <a href="bloodbank.php">Looking for blood</a>
+                    <a href="home.php#hospital">Blood bank</a>
                     <a href="login.php">Log in</a>
                 </div>
             </div>

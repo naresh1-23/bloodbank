@@ -24,7 +24,7 @@
 .sidenav a:hover{
     background-color: rgb(219, 32, 32);
 }
-.donate , .hospital, .login{
+.donate , .hospital, .login, .ava, .update, .contain{
     margin-left: 23%;
     width: 75%;
 }
@@ -32,3 +32,15 @@
     margin-top: 10%;
     margin-left: 35%;
 }
+
+
+/* .table , th , td{
+    border: 1px solid black;
+} */
+
+.ava{
+    border: 1px solid;
+    border-radius: 25px;
+}
+
+

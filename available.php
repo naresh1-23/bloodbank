@@ -1,34 +1,30 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['login']) || !$_SESSION['login']==1){
-         header('Location:login.php');
-    }
-
-?>
-<?php
  include('db/connect.php');
  $query = "SELECT * FROM blood";
  $result = mysqli_query($conn, $query);
 ?>
-<html>
-    <head>
-        <title>Home</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <script src="https://kit.fontawesome.com/833795b4ff.js" crossorigin="anonymous"></script>
-    <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <link rel="stylesheet" href="css/style.css">
 
-        <nav class="sidenavbar">
+      <title>Admin</title>
+</head>
+<body>
+ <nav class="sidenavbar">
             <div class="container">
                 <div class="row sidenav">
-                    <a href="admin.php" class = "is-active">Home</a>
-                    <a href="update.php">Update Blood</a>
-                    <a href="db/logout.php">Log out</a>
+                    <a href="home.php" class = "is-active">Home</a>
+                    <a href="bloodbank.php">Looking for blood</a>
+                    <a href="home.php#hospital">Blood bank</a>
+                    <a href="login.php">Log in</a>
                 </div>
             </div>
-        </nav>
-        
+        </nav> 
         <div class = "ava">
         <div class="card next">
             <div style="margin-top: 25px;" class="container">
@@ -48,7 +44,7 @@
                     <tr>
                         <td><?php echo $num; ?></td>
                         <td class="blood"><?php echo $row['name']; ?></td>
-                        <td><?php echo $row['quantity']; ?></td>
+                        <td><?php echo $row['quantity']; ?>&nbsp &nbsp &nbsp    <a href="reserve.php"><button type="button" class="btn btn-primary">Reserve</button></a></td>
                     </tr>
                     <?php } ?>
                 </tbody>
@@ -69,5 +65,9 @@
             </div>
       </div>
     </div>
-    </body>
+
+        
+      
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </html>

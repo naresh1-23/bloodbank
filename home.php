@@ -1,3 +1,9 @@
+<?php
+ include('db/connect.php');
+ $query = "SELECT * FROM hospitals";
+ $result = mysqli_query($conn, $query);
+?>
+
 <html>
     <head>
         <title>Home</title>
@@ -5,15 +11,12 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <nav class="navbar">
-            <h2>E bank</h2>
-        </nav>
         <nav class="sidenavbar">
             <div class="container">
                 <div class="row sidenav">
                     <a href="home.php" class = "is-active">Home</a>
-                    <a href="available.php">Looking for blood</a>
-                    <a href="nearbank1.php">Blood bank</a>
+                    <a href="bloodbank.php">Looking for blood</a>
+                    <a href="#hospital">Blood bank</a>
                     <a href="login.php">Log in</a>
                 </div>
             </div>
@@ -89,79 +92,14 @@
                     <th scope="col">Phone</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody><?php $num=0; while($row=mysqli_fetch_assoc($result)){ $num++; ?>
                 <tr class="content">
-                    <th scope="row">1</th>
-                    <td><a href="available.html">Nepal Red Cross Society Blood Bank, Soalteemod</a></td>
-                    <td>Kathmandu</td>
-                    <td>01-5006465</td>
+                    <th scope="row"><?php echo $num; ?></th>
+                    <td><a href="available.php"><?php echo $row['name']; ?></a></td>
+                    <td><?php echo $row['place']; ?></td>
+                    <td><?php echo $row['contact']; ?></td>
                 </tr>
-                <tr class="content">
-                    <th scope="row">2</th>
-                    <td><a href="available.html">Tribhuwan University Teaching Hospital Blood Center</a></td>
-                    <td>Kathmandu</td>
-                    <td>01-5006465</td>
-                </tr>
-                <tr class="content">
-                    <th scope="row">3</th>
-                    <td><a href="available.html">TU Lions Blood Transfusion & Research Center (#TULBTRC)</a></td>
-                    <td>Kirtipur</td>
-                    <td>01-5006465</td>
-                </tr>
-                <tr class="content">
-                    <th scope="row">4</th>
-                    <td><a href="available.html">Nepal Red Cross Society Blood Bank, Soalteemod</a></td>
-                    <td>Kathmandu</td>
-                    <td>01-5006465</td>
-                </tr>
-                <tr class="content">
-                    <th scope="row">5</th>
-                    <td><a href="available.html">Tribhuwan University Teaching Hospital Blood Center</a></td>
-                    <td>Kathmandu</td>
-                    <td>01-5006465</td>
-                </tr>
-                <tr class="content">
-                    <th scope="row">6</th>
-                    <td><a href="available.html">TU Lions Blood Transfusion & Research Center (#TULBTRC)</a></td>
-                    <td>Kirtipur</td>
-                    <td>01-5006465</td>
-                </tr>
-                <tr class="content">
-                    <th scope="row">7</th>
-                    <td><a href="available.html">Nepal Red Cross Society Blood Bank, Soalteemod</a></td>
-                    <td>Kathmandu</td>
-                    <td>01-5006465</td>
-                </tr>
-                <tr class="content">
-                    <th scope="row">8</th>
-                    <td><a href="available.html">Tribhuwan University Teaching Hospital Blood Center</a></td>
-                    <td>Kathmandu</td>
-                    <td>01-5006465</td>
-                </tr>
-                <tr class="content">
-                    <th scope="row">9</th>
-                    <td><a href="available.html">TU Lions Blood Transfusion & Research Center (#TULBTRC)</a></td>
-                    <td>Kirtipur</td>
-                    <td>01-5006465</td>
-                </tr>
-                <tr class="content">
-                    <th scope="row">10</th>
-                    <td><a href="available.html">Nepal Red Cross Society Blood Bank, Soalteemod</a></td>
-                    <td>Kathmandu</td>
-                    <td>01-5006465</td>
-                </tr>
-                <tr class="content">
-                    <th scope="row">11</th>
-                    <td><a href="available.html">Tribhuwan University Teaching Hospital Blood Center</a></td>
-                    <td>Kathmandu</td>
-                    <td>01-5006465</td>
-                </tr>
-                <tr class="content">
-                    <th scope="row">12</th>
-                    <td><a href="available.html">TU Lions Blood Transfusion & Research Center (#TULBTRC)</a></td>
-                    <td>Kirtipur</td>
-                    <td>01-5006465</td>
-                </tr>
+                <?php } ?>
                 </tbody>
             </table>
         </div>
